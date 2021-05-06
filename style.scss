@@ -1,0 +1,23 @@
+.board {
+  display: flex;
+  background-color: antiquewhite;
+
+  .rod {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 300px;
+    width: 100px;
+    border: 1px solid black;
+  }
+
+  .disk {
+    border: 1px solid black;
+
+    height: 20px;
+    width: 100%;
+
+    &-selected {
+      margin-bottom: auto;
+    }
+  }
+}

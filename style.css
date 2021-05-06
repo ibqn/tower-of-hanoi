@@ -1,0 +1,30 @@
+.board {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: antiquewhite;
+}
+
+.board .rod {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  height: 300px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+.board .disk {
+  border: 1px solid black;
+  height: 20px;
+  width: 100%;
+}
+
+.board .disk-selected {
+  margin-bottom: auto;
+}
+/*# sourceMappingURL=style.css.map */
