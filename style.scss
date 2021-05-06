@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 .board {
-  display: flex;
+  display: inline-flex;
   background-color: antiquewhite;
 
   .rod {
@@ -11,6 +11,11 @@
     height: 300px;
     width: 150px;
     border: 1px solid black;
+    border-right: 0;
+
+    &:last-of-type {
+      border: 1px solid black;
+    }
 
     background-image: url("images/rod.svg");
     background-size: 10px 100%;
@@ -20,12 +25,13 @@
 
   .disk {
     border: 1px solid black;
+    border-radius: 4px;
     align-self: center;
 
     background-color: cadetblue;
 
     height: 20px;
-    width: calc(100% - 20px * var(--disk-index));
+    width: calc(100% - 4px - 20px * var(--disk-index));
 
     &-selected {
       margin-bottom: auto;
