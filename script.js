@@ -3,16 +3,15 @@
 
   let selection = null;
 
-  const toggleSelect = (element) => {
-    const classes = element.classList;
-    if (classes.contains(DISK_SELECTED)) {
-      classes.remove(DISK_SELECTED);
+  const toggleSelect = ({ classList }) => {
+    if (classList.contains(DISK_SELECTED)) {
+      classList.remove(DISK_SELECTED);
     } else {
-      classes.add(DISK_SELECTED);
+      classList.add(DISK_SELECTED);
     }
   };
 
-  const handleClick = (event, rod) => {
+  const handleClick = (rod) => () => {
     const {
       dataset: { index },
     } = rod;
@@ -64,6 +63,6 @@
 
   rods.forEach((rod, index) => {
     rod.dataset.index = index;
-    rod.addEventListener("click", (event) => handleClick(event, rod));
+    rod.addEventListener("click", handleClick(rod));
   });
 })();
