@@ -1,16 +1,29 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 * {
   box-sizing: border-box;
 }
 
 .board {
-  display: inline-flex;
-  background-color: antiquewhite;
+  display: flex;
+  margin-top: 60px;
+  justify-content: center;
 
   .rod {
     display: flex;
     flex-direction: column-reverse;
+
+    position: relative;
+    background-color: antiquewhite;
+
+    padding-bottom: 10px;
     height: 300px;
     width: 150px;
+
     border: 1px solid black;
     border-right: 0;
 
@@ -22,6 +35,22 @@
     background-size: 10px 100%;
     background-repeat: no-repeat;
     background-position: center bottom;
+
+    &:after {
+      content: "";
+      width: 10px;
+      height: 150px;
+      position: absolute;
+      left: -1px;
+      bottom: 10px;
+
+      background-image: url("images/rod.svg");
+      background-size: 10px 100%;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      transform-origin: left bottom;
+      transform: rotate(90deg);
+    }
   }
 
   .disk {
