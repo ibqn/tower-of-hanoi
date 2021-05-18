@@ -32,16 +32,10 @@ body {
   padding-bottom: 10px;
   height: 300px;
   width: 150px;
-  border: 1px solid black;
-  border-right: 0;
   background-image: url("images/rod.svg");
   background-size: 10px 100%;
   background-repeat: no-repeat;
   background-position: center bottom;
-}
-
-.board .rod:last-of-type {
-  border: 1px solid black;
 }
 
 .board .rod:after {
@@ -49,10 +43,10 @@ body {
   width: 10px;
   height: 150px;
   position: absolute;
-  left: -1px;
+  left: 5px;
   bottom: 10px;
   background-image: url("images/rod.svg");
-  background-size: 10px 100%;
+  background-size: 10px calc(100% - 10px);
   background-repeat: no-repeat;
   background-position: left bottom;
   -webkit-transform-origin: left bottom;
@@ -69,7 +63,7 @@ body {
       align-self: center;
   background-color: cadetblue;
   height: 20px;
-  width: calc(100% - 4px - 20px * var(--disk-index));
+  width: calc(100% - 14px - 16px * var(--disk-index));
 }
 
 .board .disk-selected {
