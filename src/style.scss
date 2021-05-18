@@ -12,6 +12,7 @@ body {
   display: flex;
   margin-top: 60px;
   justify-content: center;
+  // border: 1px solid black;
 
   .rod {
     display: flex;
@@ -24,12 +25,12 @@ body {
     height: 300px;
     width: 150px;
 
-    border: 1px solid black;
-    border-right: 0;
+    // border: 1px solid black;
+    // border-right: 0;
 
-    &:last-of-type {
-      border: 1px solid black;
-    }
+    // &:last-of-type {
+    //   border: 1px solid black;
+    // }
 
     background-image: url("images/rod.svg");
     background-size: 10px 100%;
@@ -41,11 +42,11 @@ body {
       width: 10px;
       height: 150px;
       position: absolute;
-      left: -1px;
+      left: 5px;
       bottom: 10px;
 
       background-image: url("images/rod.svg");
-      background-size: 10px 100%;
+      background-size: 10px calc(100% - 10px);
       background-repeat: no-repeat;
       background-position: left bottom;
       transform-origin: left bottom;
@@ -61,7 +62,7 @@ body {
     background-color: cadetblue;
 
     height: 20px;
-    width: calc(100% - 4px - 20px * var(--disk-index));
+    width: calc(100% - 14px - 16px * var(--disk-index));
 
     &-selected {
       margin-bottom: auto;
