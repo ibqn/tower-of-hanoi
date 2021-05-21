@@ -11,6 +11,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "Development",
+      template: "./src/template.html",
     }),
   ],
   output: {
@@ -37,7 +38,7 @@ module.exports = {
           {
             loader: "url-loader",
             options: {
-              encoding: false,
+              encoding: "base64",
             },
           },
         ],
