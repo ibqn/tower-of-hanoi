@@ -1,38 +1,27 @@
-// (function () {
 import "./style.scss";
 
 const DISK_SELECTED = "disk-selected";
 
 let selection = null;
 
-const toggleSelect = ({ classList }) => {
-  if (classList.contains(DISK_SELECTED)) {
-    classList.remove(DISK_SELECTED);
-  } else {
-    classList.add(DISK_SELECTED);
-  }
-};
+const toggleSelect = ({ classList }) =>
+  classList.contains(DISK_SELECTED)
+    ? classList.remove(DISK_SELECTED)
+    : classList.add(DISK_SELECTED);
 
 const handleClick = (rod) => () => {
-  const {
-    dataset: { index },
-  } = rod;
-  console.log("clicked", index);
-
   const disks = rod.querySelectorAll(".disk");
   const lastDisk = disks[disks.length - 1];
 
-  if (selection && selection.index !== index) {
-    const { disk } = selection;
-
-    if (lastDisk && lastDisk.dataset.index > disk.dataset.index) {
+  if (selection) {
+    if (lastDisk && lastDisk.dataset.index > selection.dataset.index) {
       return;
     }
 
-    disk.remove();
-    rod.append(disk);
+    // selection.remove();
+    rod.append(selection);
 
-    toggleSelect(disk);
+    toggleSelect(selection);
     selection = null;
 
     return;
@@ -43,11 +32,11 @@ const handleClick = (rod) => () => {
   }
 
   toggleSelect(lastDisk);
-  selection = selection ? null : { index, disk: lastDisk };
+  selection = selection ? null : lastDisk;
 };
 
 const rods = document.querySelectorAll("#board>.rod");
-console.log("rods", rods);
+// console.log("rods", rods);
 
 const [firstRod] = rods;
 
@@ -63,8 +52,6 @@ Array.from({ length: 3 })
     firstRod.appendChild(disk);
   });
 
-rods.forEach((rod, index) => {
-  rod.dataset.index = index;
+rods.forEach((rod) => {
   rod.addEventListener("click", handleClick(rod));
 });
-// })();
